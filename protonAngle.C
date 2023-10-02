@@ -78,9 +78,11 @@ void protonAngle::Loop()
 
          fprintf(gunTFile, "%f ", phi);
 
+	 /*
          for(int i=gunn; i<maxgunn; i++){
             fprintf(gunTFile,"%f %f ",0.0,0.0); 
          }
+	 */
 
          fprintf(gunTFile,"\n");
 
