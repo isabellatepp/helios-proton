@@ -47,7 +47,7 @@ void protonAngle::Loop()
 
    int events = 0;
 
-   Long64_t nentries = fChain->GetEntriesFast();
+   Long64_t nentries = fChain->GetEntries("TST01inx");
 
    
    int maxgunn = (int)fChain->GetMaximum("gunn");
