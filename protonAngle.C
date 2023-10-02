@@ -41,11 +41,6 @@ void protonAngle::Loop()
 
    if (fChain == 0) return;
 
-   FILE * dataFile;
-   const char * inDatatxt = "inData.txt";
-   dataFile = fopen(inDatatxt,"w"); 
-
-
    FILE * gunTFile;
    const char * correctGunDatatxt = "XB_gun_vals.txt";
    gunTFile = fopen(correctGunDatatxt,"w"); 
@@ -88,17 +83,15 @@ void protonAngle::Loop()
          }
 
          fprintf(gunTFile,"\n");
-         fprintf(dataFile,"\n");
 
 
       }
 
    }
    printf("Events simulated (ggland): %lld Events kept: %d Ratio: %f\n",nentries,events,(float)events/nentries);
-   printf("Files generated:\n%s\n%s",inDatatxt,correctGunDatatxt);
+   printf("Files generated:\n%s\n%s",correctGunDatatxt);
 
    fclose(gunTFile);
-   fclose(dataFile);
 
 }
 
