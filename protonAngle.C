@@ -42,7 +42,7 @@ void protonAngle::Loop()
    if (fChain == 0) return;
 
    FILE * gunTFile;
-   const char * correctGunDatatxt = "XB_gun_vals.txt";
+   const char * correctGunDatatxt = "gun_vals.txt";
    gunTFile = fopen(correctGunDatatxt,"w"); 
 
    int events = 0;
