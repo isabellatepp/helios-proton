@@ -68,14 +68,16 @@ void protonAngle::Loop()
       double phi;
  
       for(UInt_t i=0; i<gunn; i++){
+	if(gunpdg[i]==2212){
+	
          double r = sqrt(pow(gunpx[i],2)+pow(gunpy[i],2)+pow(gunpz[i],2));
+	 
          fprintf(gunTFile,"%f ",gunT[i]);
-         theta = acos(gunpz[i] / r);
 
-         fprintf(gunTFile, "%f ", theta);
+	 theta = acos(gunpz[i] / r);
+	 fprintf(gunTFile, "%f ", theta);
 
          phi = atan2(gunpy[i], gunpx[i]);
-
          fprintf(gunTFile, "%f ", phi);
 
 	 /*
@@ -86,7 +88,7 @@ void protonAngle::Loop()
 
          fprintf(gunTFile,"\n");
 
-
+	}
       }
 
    }
