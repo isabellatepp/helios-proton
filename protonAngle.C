@@ -47,10 +47,7 @@ void protonAngle::Loop()
 
    int events = 0;
 
-   Long64_t nentries = fChain->GetEntries("TST01inx");
-
-   
-   int maxgunn = (int)fChain->GetMaximum("gunn");
+   Long64_t nentries = fChain->GetEntriesFast();
 
    Long64_t nbytes = 0, nb = 0;
 
@@ -60,6 +57,8 @@ void protonAngle::Loop()
 
       nb = fChain->GetEntry(jentry);   nbytes += nb;
 
+      if (TST01sumE < 1e-7) 
+	continue;
       
       events++;
 
@@ -79,12 +78,6 @@ void protonAngle::Loop()
 
          phi = atan2(gunpy[i], gunpx[i]);
          fprintf(gunTFile, "%f ", phi);
-
-	 /*
-         for(int i=gunn; i<maxgunn; i++){
-            fprintf(gunTFile,"%f %f ",0.0,0.0); 
-         }
-	 */
 
          fprintf(gunTFile,"\n");
 
