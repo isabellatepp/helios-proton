@@ -65,6 +65,9 @@ void protonAngle::Loop()
       const double pi = 3.14159265358979323846;
       double theta;
       double phi;
+      double x;
+      double y;
+      double z;
  
       for(UInt_t i=0; i<gunn; i++){
 	if(gunpdg[i]==2212){
@@ -78,6 +81,14 @@ void protonAngle::Loop()
 
          phi = atan2(gunpy[i], gunpx[i]);
          fprintf(gunTFile, "%f ", phi);
+	 
+	 x=TST01x[i];
+	 y=TST01y[i];
+	 z=TST01z[i];
+	 
+	 fprintf(gunTFile, "%f ", x);
+	 fprintf(gunTFile, "%f ", y);
+	 fprintf(gunTFile, "%f ", z);
 
          fprintf(gunTFile,"\n");
 
