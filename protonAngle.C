@@ -65,9 +65,10 @@ void protonAngle::Loop()
       const double pi = 3.14159265358979323846;
       double theta;
       double phi;
+      int proton = 2212;
  
       for(UInt_t i=0; i<gunn; i++){
-	if(gunpdg[i]==2212){
+	if(gunpdg[i]==proton){
 	
          double r = sqrt(pow(gunpx[i],2)+pow(gunpy[i],2)+pow(gunpz[i],2));
 	 
