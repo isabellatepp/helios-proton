@@ -6,17 +6,16 @@ do
         for DIST in 8
         do
         ~/ggland_test/scripts/ggland/land_geant4 \
-            --test-01=dz=37.465cm,z0=-24cm,ir=0.8cm,r=1.2cm,type=Si,enter,tree=1 \
-            --test-13=dz=0.01cm,z0=-5.2674cm,r=1.2cm,type=blackhole,enter,tree=1 \
+            --test-01=dz=37.465cm,z0=-20.8cm,ir=0.8cm,r=1.2cm,type=Si,enter,tree=1 \
+            --test-13=dz=0.01cm,z0=-2.068cm,r=1.2cm,type=blackhole,enter,tree=1 \
             --gun=d,dummy,T=0MeV,setboost,feed=target \
             --gun=from=target,Ac229,dummy,T/u=8MeV/u,addboost,feed=cm \
-            --gun=from=cm,p,T=$((18-Ex))MeV,isotropic,boost,subboost,feed=recoil \
-            --gun=from=recoil,Ac230,recoil,setboost,dummy,feed=compound\
-            --gun-file=maxparticles=80,gun_230Ac_${Ex}MeV.txt,from=compound,boost\
+            --gun=from=cm,p,Ac230:dummy:feed:setboost,Eexc=${Ex}MeV,isotropic,recoil,phasespace,feed=compound \
+            --gun-file=maxparticles=80,../gunfiles/gun_230Ac_${Ex}MeV.txt,from=compound,boost\
             --world=type=vacuum\
             --fieldbox=d=200cm,Bz=${B}T \
             --events=100000 \
-            --tree=heliosblackholecylinder.root
+            --tree=angle_range_${Ex}.root
             #--cmd=visu_helios.mac
             
         
